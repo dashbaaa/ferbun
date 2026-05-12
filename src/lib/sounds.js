@@ -19,6 +19,19 @@ function ctx() {
   return _ctx
 }
 
+// iOS Safari requires AudioContext to be created/resumed inside a user gesture.
+// Pre-unlock on first tap so sounds inside setTimeout callbacks still work.
+function _unlockAudio() {
+  if (!_ctx) {
+    try { _ctx = new (window.AudioContext || window.webkitAudioContext)() } catch { return }
+  }
+  _ctx.resume().catch(() => {})
+}
+if (typeof document !== 'undefined') {
+  document.addEventListener('touchstart', _unlockAudio, { once: true, passive: true })
+  document.addEventListener('click',      _unlockAudio, { once: true, passive: true })
+}
+
 /**
  * Joue une note avec enveloppe ADSR simplifiée.
  *

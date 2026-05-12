@@ -495,7 +495,7 @@ export default function Layout({ children }) {
       </aside>
 
       {/* ═══════════ Contenu principal ═══════════════════════════════════════ */}
-      <div className="flex-1 flex flex-col min-w-0 h-screen overflow-hidden">
+      <div className="flex-1 flex flex-col min-w-0 h-screen">
 
         {/* Header mobile */}
         <header className="md:hidden sticky top-0 z-10 border-b border-white/10 px-4 flex items-center justify-between shadow-sm" style={{ background: '#1A2332', height: 56 }}>
@@ -516,7 +516,7 @@ export default function Layout({ children }) {
         </header>
 
         {/* Page */}
-        <main id="main-scroll" className="flex-1 overflow-y-auto overflow-x-hidden pb-28 md:pb-0 relative">
+        <main id="main-scroll" className="flex-1 min-h-0 overflow-y-auto overflow-x-hidden pb-28 md:pb-0 relative" style={{ overscrollBehavior: 'contain' }}>
           <motion.div
             key={location.pathname}
             initial={{ opacity: 0, y: 8 }}

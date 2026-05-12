@@ -1,0 +1,153 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-green:   #1B7D4E;
+    --color-gold:    #D4940A;
+    --color-red:     #E74C5E;
+    --color-sidebar: #1A2332;
+    --color-bg:      #FAFAF7;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply text-[#1A1A2E] font-body antialiased;
+    font-feature-settings: 'kern' 1, 'liga' 1;
+    background-color: #FFFFFF;
+  }
+
+  /* Fond global layout */
+  .app-bg {
+    background-color: #FFFFFF;
+  }
+
+  /* Texture papier léger (pour Alphabet) */
+  .paper-texture {
+    background-image:
+      url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E"),
+      linear-gradient(160deg, #FDFCF8 0%, #F5F3EE 100%);
+    background-size: 256px 256px, 100% 100%;
+  }
+
+  .dark body {
+    @apply bg-kurdish-dark-bg text-gray-100;
+  }
+
+  /* Thin, elegant scrollbar */
+  ::-webkit-scrollbar             { width: 5px; }
+  ::-webkit-scrollbar-track       { background: transparent; }
+  ::-webkit-scrollbar-thumb       { @apply bg-slate-200 rounded-full; }
+  ::-webkit-scrollbar-thumb:hover { @apply bg-slate-300; }
+}
+
+@layer components {
+  /* ── Buttons ── */
+  .btn-primary {
+    @apply bg-kurdish-green text-white px-6 py-3 rounded-2xl font-semibold
+           hover:bg-kurdish-green-dark
+           transition-all duration-200
+           hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98];
+    box-shadow: 0 4px 20px rgba(27,125,78,0.28);
+  }
+  .btn-secondary {
+    @apply bg-white text-kurdish-green border-2 border-kurdish-green
+           px-6 py-3 rounded-2xl font-semibold
+           hover:bg-kurdish-green hover:text-white transition-all duration-200;
+  }
+
+  /* ── Cards ── */
+  .card {
+    @apply bg-white rounded-2xl border border-gray-100 p-6;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04);
+  }
+  .dark .card {
+    @apply bg-kurdish-dark-card border-kurdish-dark-border;
+  }
+
+  /* ── Flip cards ── */
+  .backface-hidden {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+
+  /* ── Gold badge glow ── */
+  .badge-glow {
+    box-shadow: 0 0 0 2px rgba(212,148,10,0.15),
+                0 0 12px rgba(212,148,10,0.25),
+                0 2px 6px rgba(0,0,0,0.06);
+  }
+
+  /* ── Kurdish sun pattern (filigrane très discret) ── */
+  .kurdish-pattern {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Ccircle cx='30' cy='30' r='3' fill='white' fill-opacity='0.06'/%3E%3Ccircle cx='30' cy='30' r='12' stroke='white' stroke-opacity='0.04' stroke-width='1'/%3E%3Cline x1='30' y1='14' x2='30' y2='10' stroke='white' stroke-opacity='0.04' stroke-width='1'/%3E%3Cline x1='30' y1='46' x2='30' y2='50' stroke='white' stroke-opacity='0.04' stroke-width='1'/%3E%3Cline x1='14' y1='30' x2='10' y2='30' stroke='white' stroke-opacity='0.04' stroke-width='1'/%3E%3Cline x1='46' y1='30' x2='50' y2='30' stroke='white' stroke-opacity='0.04' stroke-width='1'/%3E%3Cline x1='19.7' y1='19.7' x2='16.9' y2='16.9' stroke='white' stroke-opacity='0.04' stroke-width='1'/%3E%3Cline x1='40.3' y1='40.3' x2='43.1' y2='43.1' stroke='white' stroke-opacity='0.04' stroke-width='1'/%3E%3Cline x1='40.3' y1='19.7' x2='43.1' y2='16.9' stroke='white' stroke-opacity='0.04' stroke-width='1'/%3E%3Cline x1='19.7' y1='40.3' x2='16.9' y2='43.1' stroke='white' stroke-opacity='0.04' stroke-width='1'/%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  /* ── Answer button feedback ── */
+  .answer-correct {
+    @apply border-kurdish-green bg-kurdish-green/10 text-kurdish-green;
+    animation: correctPulse 0.4s ease-out;
+  }
+  .answer-wrong {
+    @apply border-red-400 bg-red-50 text-red-600;
+    animation: wrongShake 0.4s ease-out;
+  }
+}
+
+@layer utilities {
+  /* page fade-in */
+  .page-enter {
+    animation: slide-up 0.3s ease-out;
+  }
+
+  /* Nav badge dot */
+  .nav-dot::after {
+    content: '';
+    @apply absolute top-0.5 right-0.5 w-2 h-2 bg-red-500 rounded-full;
+  }
+}
+
+@keyframes badge-shine {
+  0%   { background-position: -200% center; }
+  60%, 100% { background-position: 200% center; }
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  14%  { transform: scale(1.18); }
+  28%  { transform: scale(1); }
+  42%  { transform: scale(1.12); }
+  70%  { transform: scale(1); }
+}
+
+@keyframes heart-lose {
+  0%   { transform: translateY(0) scale(1); opacity: 1; }
+  100% { transform: translateY(12px) scale(0.5); opacity: 0; }
+}
+
+@keyframes heart-gain {
+  0%   { transform: scale(0.5); opacity: 0; filter: drop-shadow(0 0 0px #ef4444); }
+  60%  { transform: scale(1.2); filter: drop-shadow(0 0 8px #ef4444); }
+  100% { transform: scale(1); opacity: 1; filter: drop-shadow(0 0 0px transparent); }
+}
+
+.heart-low {
+  animation: heartbeat 1.2s ease-in-out infinite;
+}
+
+@keyframes correctPulse {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.04); }
+  100% { transform: scale(1); }
+}
+@keyframes wrongShake {
+  0%, 100% { transform: translateX(0); }
+  20%      { transform: translateX(-6px); }
+  40%      { transform: translateX(6px); }
+  60%      { transform: translateX(-4px); }
+  80%      { transform: translateX(4px); }
+}

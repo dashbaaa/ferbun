@@ -1,0 +1,378 @@
+{
+  "title": "Alfabe",
+  "description": "L'alphabet kurmandji utilise 31 lettres latines avec quelques caractères spéciaux essentiels",
+  "letters": [
+    {
+      "letter": "A", "lower": "a", "ipa": "/a/",
+      "short_sound": "a dans 'papa'",
+      "description": "Comme le 'a' ouvert français dans 'papa' ou 'chat'. Toujours prononcé clairement, jamais avalé.",
+      "phonetic_hint": "Bouche bien ouverte, comme quand le médecin dit 'dites aaaa'",
+      "example_words": [
+        { "word": "av", "translation": "eau", "phonetic": "av" },
+        { "word": "agir", "translation": "seigneur, chef", "phonetic": "a-guir" },
+        { "word": "aşkere", "translation": "évident, clair", "phonetic": "ach-ké-ré" }
+      ],
+      "special": false, "difficulty": "easy"
+    },
+    {
+      "letter": "B", "lower": "b", "ipa": "/b/",
+      "short_sound": "b dans 'bateau'",
+      "description": "Exactement comme le 'b' français dans 'bateau' ou 'beau'.",
+      "phonetic_hint": "Lèvres collées puis relâchées brusquement",
+      "example_words": [
+        { "word": "bav", "translation": "père", "phonetic": "bav" },
+        { "word": "bajar", "translation": "ville", "phonetic": "ba-jar" },
+        { "word": "berz", "translation": "haut, grand", "phonetic": "berz" }
+      ],
+      "special": false, "difficulty": "easy"
+    },
+    {
+      "letter": "C", "lower": "c", "ipa": "/dʒ/",
+      "short_sound": "dj dans 'djinn'",
+      "description": "Prononcé 'dj', comme dans le mot anglais 'job' ou 'jam'. Jamais comme le 'c' français !",
+      "phonetic_hint": "Pense à 'DJinn', 'DJazz' — un seul son, pas deux",
+      "example_words": [
+        { "word": "can", "translation": "âme, vie", "phonetic": "djane" },
+        { "word": "cî", "translation": "lieu, place", "phonetic": "djî" },
+        { "word": "cer", "translation": "descendre", "phonetic": "djer" }
+      ],
+      "special": false, "difficulty": "medium"
+    },
+    {
+      "letter": "Ç", "lower": "ç", "ipa": "/tʃ/",
+      "short_sound": "tch dans 'tchin-tchin'",
+      "description": "Prononcé 'tch', comme dans 'tchèque', 'tchin-tchin' ou l'anglais 'church'. Différent du 'ç' français !",
+      "phonetic_hint": "Pense à 'TCHador', 'TCHécoslovaquie' — une consonne explosive",
+      "example_words": [
+        { "word": "çav", "translation": "œil", "phonetic": "tchav" },
+        { "word": "çêlk", "translation": "poulain", "phonetic": "tché-lk" },
+        { "word": "çiya", "translation": "montagne", "phonetic": "tchi-ya" }
+      ],
+      "special": true, "difficulty": "medium"
+    },
+    {
+      "letter": "D", "lower": "d", "ipa": "/d/",
+      "short_sound": "d dans 'dire'",
+      "description": "Exactement comme le 'd' français dans 'dire' ou 'donner'.",
+      "phonetic_hint": "Langue sur les dents du haut, puis relâchée",
+      "example_words": [
+        { "word": "dê", "translation": "mère", "phonetic": "dê" },
+        { "word": "dil", "translation": "cœur", "phonetic": "dil" },
+        { "word": "dar", "translation": "arbre, bois", "phonetic": "dar" }
+      ],
+      "special": false, "difficulty": "easy"
+    },
+    {
+      "letter": "E", "lower": "e", "ipa": "/ɛ/",
+      "short_sound": "è dans 'fête'",
+      "description": "Comme le 'è' ouvert français dans 'fête', 'père', 'mère'. Toujours ouvert, jamais muet.",
+      "phonetic_hint": "Bouche à mi-ouverture, comme dans 'fÈte' — pas le 'e' muet de 'le'",
+      "example_words": [
+        { "word": "erd", "translation": "terre, sol", "phonetic": "erd" },
+        { "word": "esker", "translation": "armée", "phonetic": "es-ker" },
+        { "word": "ev", "translation": "cette, ce (démonstratif)", "phonetic": "ev" }
+      ],
+      "special": false, "difficulty": "easy"
+    },
+    {
+      "letter": "Ê", "lower": "ê", "ipa": "/eː/",
+      "short_sound": "é long dans 'été'",
+      "description": "Voyelle longue, comme un 'é' fermé et prolongé. La durée est importante : elle change le sens du mot.",
+      "phonetic_hint": "Dis 'été' et prolonge le premier 'é' — ÊÊÊvar",
+      "example_words": [
+        { "word": "êvar", "translation": "soir", "phonetic": "ê-var" },
+        { "word": "êş", "translation": "douleur, souffrance", "phonetic": "êch" },
+        { "word": "êzing", "translation": "charbon de bois", "phonetic": "ê-zing" }
+      ],
+      "special": true, "difficulty": "hard"
+    },
+    {
+      "letter": "F", "lower": "f", "ipa": "/f/",
+      "short_sound": "f dans 'fleur'",
+      "description": "Exactement comme le 'f' français dans 'fleur' ou 'feu'.",
+      "phonetic_hint": "Dents du haut sur la lèvre inférieure",
+      "example_words": [
+        { "word": "fêr", "translation": "apprendre", "phonetic": "fêr" },
+        { "word": "firok", "translation": "avion", "phonetic": "fi-rok" },
+        { "word": "fêkî", "translation": "fruit", "phonetic": "fê-kî" }
+      ],
+      "special": false, "difficulty": "easy"
+    },
+    {
+      "letter": "G", "lower": "g", "ipa": "/ɡ/",
+      "short_sound": "g dur dans 'gare'",
+      "description": "Toujours le 'g' dur comme dans 'gare', 'grand'. Jamais le 'g' doux de 'genou'.",
+      "phonetic_hint": "Pense à 'Gâteau', 'Grande' — toujours dur",
+      "example_words": [
+        { "word": "gul", "translation": "rose (fleur)", "phonetic": "goul" },
+        { "word": "gund", "translation": "village", "phonetic": "gound" },
+        { "word": "gav", "translation": "pas, étape", "phonetic": "gav" }
+      ],
+      "special": false, "difficulty": "easy"
+    },
+    {
+      "letter": "H", "lower": "h", "ipa": "/h/",
+      "short_sound": "h aspiré dans 'hello'",
+      "description": "Le 'h' est toujours aspiré et prononcé, comme en anglais ou en allemand. Ne jamais l'ignorer !",
+      "phonetic_hint": "Souffle d'air chaud — comme embruer un miroir",
+      "example_words": [
+        { "word": "heval", "translation": "ami(e)", "phonetic": "hé-val" },
+        { "word": "hêvî", "translation": "espoir", "phonetic": "hê-vî" },
+        { "word": "hewl", "translation": "effort, essai", "phonetic": "hewl" }
+      ],
+      "special": false, "difficulty": "medium"
+    },
+    {
+      "letter": "I", "lower": "i", "ipa": "/ɪ/",
+      "short_sound": "i bref dans 'vite'",
+      "description": "Un 'i' bref, légèrement plus ouvert que le 'i' français. Distinct du Î qui est long.",
+      "phonetic_hint": "Plus court et plus relâché que le 'î' — bouche moins tendue",
+      "example_words": [
+        { "word": "in", "translation": "ils/elles sont", "phonetic": "in" },
+        { "word": "iro", "translation": "aujourd'hui (forme relâchée)", "phonetic": "i-ro" },
+        { "word": "is", "translation": "suie, fumée noire", "phonetic": "is" }
+      ],
+      "special": false, "difficulty": "hard"
+    },
+    {
+      "letter": "Î", "lower": "î", "ipa": "/iː/",
+      "short_sound": "i long dans 'vie'",
+      "description": "Voyelle longue, un 'i' prolongé et tendu. La longueur distingue des mots différents.",
+      "phonetic_hint": "Dis 'vie' et prolonge le 'i' — ÎÎÎro",
+      "example_words": [
+        { "word": "îro", "translation": "aujourd'hui", "phonetic": "î-ro" },
+        { "word": "îngiliz", "translation": "anglais", "phonetic": "în-gui-liz" },
+        { "word": "îcar", "translation": "cette fois, alors", "phonetic": "î-djar" }
+      ],
+      "special": true, "difficulty": "hard"
+    },
+    {
+      "letter": "J", "lower": "j", "ipa": "/ʒ/",
+      "short_sound": "j dans 'jardin'",
+      "description": "Exactement comme le 'j' français dans 'jardin', 'jour', 'bonjour'. Identique au français.",
+      "phonetic_hint": "Le même 'j' que 'bonjour' — facile pour un francophone !",
+      "example_words": [
+        { "word": "jîn", "translation": "vie, femme", "phonetic": "jîn" },
+        { "word": "jor", "translation": "haut, dessus", "phonetic": "jor" },
+        { "word": "ji", "translation": "de, depuis, par", "phonetic": "ji" }
+      ],
+      "special": false, "difficulty": "easy"
+    },
+    {
+      "letter": "K", "lower": "k", "ipa": "/k/",
+      "short_sound": "k dans 'kilo'",
+      "description": "Comme le 'k' français dans 'kilo' ou le 'c' dur de 'café'. Clair et net.",
+      "phonetic_hint": "Pense à 'Café', 'Kilo' — explosion d'air du fond de la gorge",
+      "example_words": [
+        { "word": "kur", "translation": "fils, garçon", "phonetic": "kour" },
+        { "word": "keç", "translation": "fille", "phonetic": "ketch" },
+        { "word": "kurmandji", "translation": "kurmandji (le dialecte)", "phonetic": "kour-man-djî" }
+      ],
+      "special": false, "difficulty": "easy"
+    },
+    {
+      "letter": "L", "lower": "l", "ipa": "/l/",
+      "short_sound": "l dans 'lune'",
+      "description": "Comme le 'l' français dans 'lune' ou 'lion'. Clair, pas vélarisé.",
+      "phonetic_hint": "Langue derrière les dents du haut — léger et clair",
+      "example_words": [
+        { "word": "lê", "translation": "lui, elle (datif)", "phonetic": "lê" },
+        { "word": "lêv", "translation": "lèvre", "phonetic": "lêv" },
+        { "word": "ling", "translation": "jambe, pied", "phonetic": "ling" }
+      ],
+      "special": false, "difficulty": "easy"
+    },
+    {
+      "letter": "M", "lower": "m", "ipa": "/m/",
+      "short_sound": "m dans 'maison'",
+      "description": "Exactement comme le 'm' français dans 'maison', 'mère', 'maman'.",
+      "phonetic_hint": "Lèvres jointes, souffle par le nez",
+      "example_words": [
+        { "word": "mal", "translation": "maison, foyer", "phonetic": "mal" },
+        { "word": "malbat", "translation": "famille", "phonetic": "mal-bat" },
+        { "word": "min", "translation": "moi, je", "phonetic": "min" }
+      ],
+      "special": false, "difficulty": "easy"
+    },
+    {
+      "letter": "N", "lower": "n", "ipa": "/n/",
+      "short_sound": "n dans 'nuit'",
+      "description": "Exactement comme le 'n' français dans 'nuit', 'non', 'nom'.",
+      "phonetic_hint": "Langue sur le palais, souffle par le nez",
+      "example_words": [
+        { "word": "nav", "translation": "nom, intérieur", "phonetic": "nav" },
+        { "word": "nû", "translation": "nouveau, neuf", "phonetic": "nû" },
+        { "word": "nexweş", "translation": "malade", "phonetic": "nè-khwech" }
+      ],
+      "special": false, "difficulty": "easy"
+    },
+    {
+      "letter": "O", "lower": "o", "ipa": "/o/",
+      "short_sound": "o dans 'mot'",
+      "description": "Comme le 'o' fermé français dans 'mot', 'beau', 'eau'.",
+      "phonetic_hint": "Lèvres arrondies, son fermé — comme 'beau'",
+      "example_words": [
+        { "word": "ode", "translation": "chambre", "phonetic": "o-dé" },
+        { "word": "or", "translation": "or (métal)", "phonetic": "or" },
+        { "word": "ot", "translation": "herbe, gazon", "phonetic": "ot" }
+      ],
+      "special": false, "difficulty": "easy"
+    },
+    {
+      "letter": "P", "lower": "p", "ipa": "/p/",
+      "short_sound": "p dans 'père'",
+      "description": "Comme le 'p' français dans 'père', 'pain'. Légèrement aspiré.",
+      "phonetic_hint": "Lèvres collées puis souffle — 'pfff'",
+      "example_words": [
+        { "word": "pir", "translation": "pont, très (beaucoup)", "phonetic": "pir" },
+        { "word": "pêşeroj", "translation": "avenir", "phonetic": "pê-che-roj" },
+        { "word": "pencere", "translation": "fenêtre", "phonetic": "pen-djer-é" }
+      ],
+      "special": false, "difficulty": "easy"
+    },
+    {
+      "letter": "Q", "lower": "q", "ipa": "/q/",
+      "short_sound": "k guttural du fond de la gorge",
+      "description": "Un 'k' prononcé du fond de la gorge (uvulaire), comme en arabe. Différent du K ordinaire.",
+      "phonetic_hint": "Imagine un 'k' que tu prononces en gargarisant — fond de la gorge",
+      "example_words": [
+        { "word": "qral", "translation": "roi", "phonetic": "q-ral" },
+        { "word": "qelem", "translation": "stylo, crayon", "phonetic": "qé-lem" },
+        { "word": "qeyd", "translation": "note, registre", "phonetic": "qeïd" }
+      ],
+      "special": true, "difficulty": "hard"
+    },
+    {
+      "letter": "R", "lower": "r", "ipa": "/r/",
+      "short_sound": "r roulé comme en espagnol",
+      "description": "Un 'r' roulé avec la langue, comme en espagnol ou en arabe. Pas le 'r' grasseyé français.",
+      "phonetic_hint": "Fais vibrer la pointe de ta langue contre le palais — 'rrrr'",
+      "example_words": [
+        { "word": "roj", "translation": "jour, soleil", "phonetic": "roj" },
+        { "word": "rêz", "translation": "respect, rangée", "phonetic": "rêz" },
+        { "word": "rojname", "translation": "journal (quotidien)", "phonetic": "roj-na-mé" }
+      ],
+      "special": false, "difficulty": "medium"
+    },
+    {
+      "letter": "S", "lower": "s", "ipa": "/s/",
+      "short_sound": "s dans 'soleil'",
+      "description": "Toujours le 's' sifflant de 'soleil', jamais le 's' sonore de 'maison'. Toujours sourd.",
+      "phonetic_hint": "Comme un serpent qui siffle — SSS",
+      "example_words": [
+        { "word": "sar", "translation": "froid", "phonetic": "sar" },
+        { "word": "silav", "translation": "salutation, bonjour", "phonetic": "si-lav" },
+        { "word": "serê sibê", "translation": "bonjour (matin)", "phonetic": "sé-rê si-bê" }
+      ],
+      "special": false, "difficulty": "easy"
+    },
+    {
+      "letter": "Ş", "lower": "ş", "ipa": "/ʃ/",
+      "short_sound": "ch dans 'chat'",
+      "description": "Prononcé exactement comme le 'ch' français dans 'chat', 'chocolat', 'chose'.",
+      "phonetic_hint": "Pense à 'CHat', 'CHocolat', 'CHantier' — c'est notre 'ch' !",
+      "example_words": [
+        { "word": "şev", "translation": "nuit", "phonetic": "chev" },
+        { "word": "şîr", "translation": "lait, lion", "phonetic": "chîr" },
+        { "word": "şeş", "translation": "six", "phonetic": "chéch" }
+      ],
+      "special": true, "difficulty": "easy"
+    },
+    {
+      "letter": "T", "lower": "t", "ipa": "/t/",
+      "short_sound": "t dans 'table'",
+      "description": "Comme le 't' français dans 'table', 'terre'. Légèrement aspiré.",
+      "phonetic_hint": "Langue contre les dents du haut — sec et net",
+      "example_words": [
+        { "word": "te", "translation": "toi (complément)", "phonetic": "té" },
+        { "word": "tê", "translation": "tu viens", "phonetic": "tê" },
+        { "word": "tirş", "translation": "acide, aigre", "phonetic": "tirch" }
+      ],
+      "special": false, "difficulty": "easy"
+    },
+    {
+      "letter": "U", "lower": "u", "ipa": "/ʊ/",
+      "short_sound": "ou bref dans 'tour'",
+      "description": "Un 'ou' bref et relâché, légèrement plus ouvert que le 'û' long. Distinct du Û.",
+      "phonetic_hint": "Comme le 'ou' de 'tour' mais plus court et moins tendu",
+      "example_words": [
+        { "word": "ur", "translation": "mur, paroi", "phonetic": "our" },
+        { "word": "uxan", "translation": "pleuvoir (dialectal)", "phonetic": "ou-khan" },
+        { "word": "uzun", "translation": "long (emprunt)", "phonetic": "ou-zoun" }
+      ],
+      "special": false, "difficulty": "hard"
+    },
+    {
+      "letter": "Û", "lower": "û", "ipa": "/uː/",
+      "short_sound": "ou long dans 'doux'",
+      "description": "Voyelle longue, un 'ou' prononcé lentement et pleinement. Très courant en kurmandji.",
+      "phonetic_hint": "Dis 'doux' et prolonge le 'ou' — ÛÛÛ",
+      "example_words": [
+        { "word": "û", "translation": "et (conjonction)", "phonetic": "û" },
+        { "word": "nû", "translation": "nouveau, neuf", "phonetic": "nû" },
+        { "word": "rûpel", "translation": "page, visage", "phonetic": "rû-pel" }
+      ],
+      "special": true, "difficulty": "medium"
+    },
+    {
+      "letter": "V", "lower": "v", "ipa": "/v/",
+      "short_sound": "v dans 'vie'",
+      "description": "Exactement comme le 'v' français dans 'vie', 'vent', 'vous'.",
+      "phonetic_hint": "Dents du haut sur la lèvre inférieure — vibration",
+      "example_words": [
+        { "word": "vir", "translation": "ici", "phonetic": "vir" },
+        { "word": "vê", "translation": "cette, ceci (démonstratif)", "phonetic": "vê" },
+        { "word": "vedixwe", "translation": "il/elle boit", "phonetic": "vé-di-khwé" }
+      ],
+      "special": false, "difficulty": "easy"
+    },
+    {
+      "letter": "W", "lower": "w", "ipa": "/w/",
+      "short_sound": "w dans 'whisky'",
+      "description": "Comme le 'w' anglais dans 'water', 'whisky' ou le son 'ou' semi-vocalique. Pas de 'w' en français standard.",
+      "phonetic_hint": "Pense à 'OUi' prononcé rapidement — ou le 'w' de 'whisky'",
+      "example_words": [
+        { "word": "wî", "translation": "lui (masculin, génitif)", "phonetic": "wî" },
+        { "word": "wê", "translation": "elle (féminin, génitif)", "phonetic": "wê" },
+        { "word": "welat", "translation": "pays, patrie", "phonetic": "wé-lat" }
+      ],
+      "special": true, "difficulty": "medium"
+    },
+    {
+      "letter": "X", "lower": "x", "ipa": "/x/",
+      "short_sound": "j espagnol ou ch allemand de 'Bach'",
+      "description": "Son guttural fricatif, comme le 'j' espagnol dans 'José', le 'ch' allemand de 'Bach', ou le 'kh' de 'khôl'. Très utilisé en kurmandji.",
+      "phonetic_hint": "Comme si tu raclais le fond de la gorge — 'khhh'. Pense à 'Bach' ou 'Loch Ness'",
+      "example_words": [
+        { "word": "xwarin", "translation": "manger, nourriture", "phonetic": "khwa-rin" },
+        { "word": "xweş", "translation": "agréable, bon", "phonetic": "khwéch" },
+        { "word": "xwişk", "translation": "sœur", "phonetic": "khwichk" }
+      ],
+      "special": true, "difficulty": "hard"
+    },
+    {
+      "letter": "Y", "lower": "y", "ipa": "/j/",
+      "short_sound": "y dans 'yeux'",
+      "description": "Comme le 'y' semi-vocalique français dans 'yeux', 'yaourt'. Toujours consonne, jamais voyelle.",
+      "phonetic_hint": "Comme 'yeux', 'yaourt' — glissement rapide vers la voyelle suivante",
+      "example_words": [
+        { "word": "yek", "translation": "un (chiffre)", "phonetic": "yek" },
+        { "word": "yan", "translation": "ou bien, soit", "phonetic": "yan" },
+        { "word": "yekîtî", "translation": "unité, union", "phonetic": "yé-kî-tî" }
+      ],
+      "special": false, "difficulty": "easy"
+    },
+    {
+      "letter": "Z", "lower": "z", "ipa": "/z/",
+      "short_sound": "z dans 'zéro'",
+      "description": "Exactement comme le 'z' français dans 'zéro', 'maison' (le son de 's' entre voyelles).",
+      "phonetic_hint": "Comme un bourdon qui vole — ZZZ",
+      "example_words": [
+        { "word": "ziman", "translation": "langue (de parole)", "phonetic": "zi-man" },
+        { "word": "zer", "translation": "or, jaune", "phonetic": "zer" },
+        { "word": "zivistan", "translation": "hiver", "phonetic": "zi-vis-tan" }
+      ],
+      "special": false, "difficulty": "easy"
+    }
+  ]
+}

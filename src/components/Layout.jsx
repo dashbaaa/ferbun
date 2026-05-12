@@ -516,13 +516,13 @@ export default function Layout({ children }) {
         </header>
 
         {/* Page */}
-        <main id="main-scroll" className="flex-1 overflow-y-auto overflow-x-hidden pb-20 md:pb-0 relative">
+        <main id="main-scroll" className="flex-1 overflow-y-auto overflow-x-hidden pb-28 md:pb-0 relative">
           <motion.div
             key={location.pathname}
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.22, ease: 'easeOut' }}
-            className="h-full"
+            className="min-h-full"
           >
             {children}
           </motion.div>

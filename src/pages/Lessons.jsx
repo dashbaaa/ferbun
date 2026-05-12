@@ -264,13 +264,13 @@ export function McExercise({ exercise, onAnswer }) {
   const isKdToFr = exercise.type === 'mc-kd-fr'
   return (
     <div>
-      <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-4">
+      <p className="text-xs font-semibold text-white/40 uppercase tracking-wide mb-4">
         {isKdToFr ? 'Que signifie ce mot en français ?' : 'Comment dit-on ça en kurmandji ?'}
       </p>
       <div className="text-center mb-6">
         <span className="text-4xl font-display font-bold text-kurdish-green">{exercise.question}</span>
         {exercise.phonetic && (
-          <p className="text-sm font-mono text-gray-400 mt-1">{exercise.phonetic}</p>
+          <p className="text-sm font-mono text-white/40 mt-1">{exercise.phonetic}</p>
         )}
       </div>
       <div className="grid grid-cols-2 gap-3">
@@ -283,14 +283,14 @@ export function McExercise({ exercise, onAnswer }) {
               onClick={() => pick(opt)}
               disabled={!!selected}
               className={`
-                relative p-5 rounded-2xl border-2 text-sm font-semibold text-left transition-all min-h-[64px]
+                relative p-5 rounded-2xl border-2 text-sm font-semibold text-left transition-all min-h-[64px] text-white
                 ${!selected
-                  ? 'border-gray-200 dark:border-kurdish-dark-border hover:border-kurdish-green hover:bg-kurdish-green/5 active:scale-[0.98]'
+                  ? 'border-white/15 bg-white/[0.04] hover:border-kurdish-green hover:bg-kurdish-green/10 active:scale-[0.98]'
                   : isRight
                     ? 'answer-correct'
                     : isChosen
                       ? 'answer-wrong'
-                      : 'border-gray-200 dark:border-kurdish-dark-border opacity-40'
+                      : 'border-white/10 bg-white/[0.02] opacity-40'
                 }
               `}
             >
@@ -338,7 +338,7 @@ export function MatchingExercise({ exercise, onAnswer }) {
 
   return (
     <div>
-      <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-4">
+      <p className="text-xs font-semibold text-white/40 uppercase tracking-wide mb-4">
         Associe chaque mot à sa traduction
       </p>
       <div className="grid grid-cols-2 gap-3">
@@ -347,11 +347,11 @@ export function MatchingExercise({ exercise, onAnswer }) {
             <button
               key={kd}
               onClick={() => !isMatchedKd(kd) && setSelLeft(kd)}
-              className={`w-full p-3 rounded-xl border-2 text-sm font-bold transition-all
+              className={`w-full p-3 rounded-xl border-2 text-sm font-bold transition-all text-white
                 ${isMatchedKd(kd) ? 'border-kurdish-green bg-kurdish-green/10 text-kurdish-green opacity-60 cursor-default'
                   : selLeft === kd ? 'border-kurdish-green bg-kurdish-green/10 text-kurdish-green'
                   : wrong && selLeft === kd ? 'border-red-400'
-                  : 'border-gray-200 dark:border-kurdish-dark-border hover:border-kurdish-green cursor-pointer'
+                  : 'border-white/15 bg-white/[0.04] hover:border-kurdish-green cursor-pointer'
                 }
               `}
             >{kd}</button>
@@ -362,19 +362,19 @@ export function MatchingExercise({ exercise, onAnswer }) {
             <button
               key={fr}
               onClick={() => !isMatchedFr(fr) && selLeft && setSelRight(fr)}
-              className={`w-full p-3 rounded-xl border-2 text-sm transition-all
+              className={`w-full p-3 rounded-xl border-2 text-sm transition-all text-white
                 ${isMatchedFr(fr) ? 'border-kurdish-green bg-kurdish-green/10 text-kurdish-green opacity-60 cursor-default'
                   : selRight === fr ? 'border-kurdish-green bg-kurdish-green/10'
                   : wrong && selRight === fr ? 'border-red-400'
-                  : selLeft ? 'border-gray-200 dark:border-kurdish-dark-border hover:border-kurdish-green cursor-pointer'
-                  : 'border-gray-200 dark:border-kurdish-dark-border opacity-50 cursor-default'
+                  : selLeft ? 'border-white/15 bg-white/[0.04] hover:border-kurdish-green cursor-pointer'
+                  : 'border-white/10 bg-white/[0.02] opacity-50 cursor-default'
                 }
               `}
             >{fr}</button>
           ))}
         </div>
       </div>
-      <p className="text-xs text-gray-400 text-center mt-3">
+      <p className="text-xs text-white/40 text-center mt-3">
         {matched.length} / {pairs.length} paires trouvées
       </p>
     </div>
@@ -393,13 +393,13 @@ export function FillBlankExercise({ exercise, onAnswer }) {
 
   return (
     <div>
-      <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-4">
+      <p className="text-xs font-semibold text-white/40 uppercase tracking-wide mb-4">
         Complète la phrase kurmandji
       </p>
       <div className="bg-kurdish-green/5 border border-kurdish-green/20 rounded-2xl p-4 mb-2 text-center">
-        <p className="text-lg font-semibold text-gray-800 dark:text-white">{exercise.sentence_kd}</p>
+        <p className="text-lg font-semibold text-white">{exercise.sentence_kd}</p>
       </div>
-      <p className="text-sm text-gray-400 text-center mb-5 italic">{exercise.sentence_fr}</p>
+      <p className="text-sm text-white/45 text-center mb-5 italic">{exercise.sentence_fr}</p>
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
         {exercise.options.map((opt, i) => {
           const isChosen = selected === opt
@@ -410,11 +410,11 @@ export function FillBlankExercise({ exercise, onAnswer }) {
               onClick={() => pick(opt)}
               disabled={!!selected}
               className={`
-                p-4 rounded-2xl border-2 text-sm font-bold transition-all min-h-[56px]
-                ${!selected ? 'border-gray-200 dark:border-kurdish-dark-border hover:border-kurdish-green hover:bg-kurdish-green/5 active:scale-[0.97]'
+                p-4 rounded-2xl border-2 text-sm font-bold transition-all min-h-[56px] text-white
+                ${!selected ? 'border-white/15 bg-white/[0.04] hover:border-kurdish-green hover:bg-kurdish-green/10 active:scale-[0.97]'
                   : isRight  ? 'answer-correct'
                   : isChosen ? 'answer-wrong'
-                  : 'border-gray-200 dark:border-kurdish-dark-border opacity-40'
+                  : 'border-white/10 bg-white/[0.02] opacity-40'
                 }
               `}
             >{opt}</button>
@@ -532,13 +532,13 @@ export function WordOrderExercise({ exercise, onAnswer, onSkip }) {
 
   return (
     <div>
-      <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-4">
+      <p className="text-xs font-semibold text-white/40 uppercase tracking-wide mb-4">
         Remets les mots dans le bon ordre
       </p>
 
       {/* Traduction française */}
       <div className="bg-kurdish-green/5 border border-kurdish-green/20 rounded-2xl p-4 mb-5 text-center">
-        <p className="text-base font-medium text-gray-700 dark:text-gray-200 italic">
+        <p className="text-base font-medium text-white/80 italic">
           &ldquo;{exercise.sentence_fr}&rdquo;
         </p>
       </div>
@@ -547,13 +547,13 @@ export function WordOrderExercise({ exercise, onAnswer, onSkip }) {
       <div className={`
         min-h-[60px] rounded-2xl border-2 p-3 mb-2 flex flex-wrap gap-2 items-center transition-colors duration-300
         ${status === 'correct' ? 'border-kurdish-green bg-kurdish-green/5'
-          : status === 'wrong'   ? 'border-red-400 bg-red-50 dark:bg-red-900/20'
-          : placed.length > 0    ? 'border-kurdish-green/40 bg-gray-50 dark:bg-kurdish-dark-card'
-          : 'border-dashed border-gray-300 dark:border-kurdish-dark-border bg-gray-50/50 dark:bg-kurdish-dark-card/50'
+          : status === 'wrong'   ? 'border-red-400 bg-red-900/20'
+          : placed.length > 0    ? 'border-kurdish-green/40 bg-white/5'
+          : 'border-dashed border-white/15 bg-white/[0.02]'
         }
       `}>
         {placed.length === 0 && (
-          <p className="text-sm text-gray-400 mx-auto select-none">
+          <p className="text-sm text-white/35 mx-auto select-none">
             Clique sur les mots ci-dessous…
           </p>
         )}
@@ -593,7 +593,7 @@ export function WordOrderExercise({ exercise, onAnswer, onSkip }) {
             exit={{ opacity: 0 }}
             className="text-center mb-3"
           >
-            <p className="text-xs text-gray-400 mb-0.5">Bonne réponse :</p>
+            <p className="text-xs text-white/40 mb-0.5">Bonne réponse :</p>
             <p className="font-bold text-kurdish-green">{exercise.tokens.join(' ')}</p>
           </motion.div>
         )}

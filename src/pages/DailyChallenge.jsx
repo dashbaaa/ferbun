@@ -373,11 +373,11 @@ function ChallengeSession({ exercises, onComplete }) {
         </div>
         {/* Vague de séparation */}
         <svg className="absolute bottom-0 left-0 w-full" viewBox="0 0 1440 32" preserveAspectRatio="none" style={{ height: 32 }}>
-          <path d="M0,32 L0,16 Q180,0 360,16 Q540,32 720,16 Q900,0 1080,16 Q1260,32 1440,16 L1440,32 Z" fill="#FAFAF7" />
+          <path d="M0,32 L0,16 Q180,0 360,16 Q540,32 720,16 Q900,0 1080,16 Q1260,32 1440,16 L1440,32 Z" fill="#060D1A" />
         </svg>
       </div>
 
-      <div className="max-w-lg mx-auto px-4 py-6" style={{ background: 'linear-gradient(180deg, rgba(255,243,205,0.2) 0%, transparent 50%)' }}>
+      <div className="max-w-lg mx-auto px-4 py-6">
 
       {/* Exercice actif */}
       <AnimatePresence mode="wait">
@@ -387,7 +387,8 @@ function ChallengeSession({ exercises, onComplete }) {
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -30 }}
           transition={{ duration: 0.2 }}
-          className="bg-white rounded-3xl border border-slate-200 shadow-sm p-6"
+          className="rounded-3xl p-6"
+          style={{ background: 'rgba(255,255,255,0.05)', backdropFilter: 'blur(24px)', WebkitBackdropFilter: 'blur(24px)', border: '1px solid rgba(255,255,255,0.09)' }}
         >
           {ex.type === 'mc-kd-fr' || ex.type === 'mc-fr-kd'
             ? <McExercise exercise={ex} onAnswer={handleAnswer} />

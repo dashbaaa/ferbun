@@ -11,7 +11,8 @@
  *   playCompletion() fin de quiz / leçon complète
  */
 
-let _ctx = null
+let _ctx     = null
+let _unlocked = false
 
 function ctx() {
   if (!_ctx) _ctx = new (window.AudioContext || window.webkitAudioContext)()
@@ -19,17 +20,27 @@ function ctx() {
   return _ctx
 }
 
-// iOS Safari requires AudioContext to be created/resumed inside a user gesture.
-// Pre-unlock on first tap so sounds inside setTimeout callbacks still work.
+// iOS Safari blocks AudioContext until a user gesture.
+// Playing a 1-sample silent buffer inside touchstart forces the context into
+// 'running' state synchronously — .resume() alone is async and too slow.
 function _unlockAudio() {
+  if (_unlocked) return
+  _unlocked = true
   if (!_ctx) {
     try { _ctx = new (window.AudioContext || window.webkitAudioContext)() } catch { return }
   }
+  try {
+    const buf = _ctx.createBuffer(1, 1, 22050)
+    const src = _ctx.createBufferSource()
+    src.buffer = buf
+    src.connect(_ctx.destination)
+    src.start(0)
+  } catch { /* ignore */ }
   _ctx.resume().catch(() => {})
 }
 if (typeof document !== 'undefined') {
-  document.addEventListener('touchstart', _unlockAudio, { once: true, passive: true })
-  document.addEventListener('click',      _unlockAudio, { once: true, passive: true })
+  document.addEventListener('touchstart', _unlockAudio, { passive: true })
+  document.addEventListener('click',      _unlockAudio)
 }
 
 /**

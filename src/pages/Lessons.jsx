@@ -400,7 +400,7 @@ export function FillBlankExercise({ exercise, onAnswer }) {
         <p className="text-lg font-semibold text-gray-800 dark:text-white">{exercise.sentence_kd}</p>
       </div>
       <p className="text-sm text-gray-400 text-center mb-5 italic">{exercise.sentence_fr}</p>
-      <div className="grid grid-cols-3 gap-3">
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
         {exercise.options.map((opt, i) => {
           const isChosen = selected === opt
           const isRight  = opt === exercise.correct

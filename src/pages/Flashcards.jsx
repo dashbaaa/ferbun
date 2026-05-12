@@ -146,7 +146,7 @@ function ReviewSession({ cards, onDone }) {
               <button
                 key={r.quality}
                 onClick={() => rate(r.quality)}
-                className={`py-4 rounded-2xl border-2 font-semibold text-sm transition-all active:scale-95 flex flex-col items-center gap-1 ${r.bg} ${r.text} ${r.border}`}
+                className={`py-4 rounded-2xl border-2 font-semibold text-sm transition-all active:scale-95 flex flex-col items-center gap-1 min-h-[56px] ${r.bg} ${r.text} ${r.border}`}
               >
                 <span className="text-xl">{r.icon}</span>
                 <span className="text-xs">{r.label}</span>

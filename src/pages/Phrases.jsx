@@ -349,7 +349,7 @@ export default function Phrases() {
                 initial={{ opacity: 0, x: -10 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: 10 }}
-                className="grid grid-cols-2 gap-3"
+                className="grid grid-cols-1 sm:grid-cols-2 gap-3"
               >
                 {PHRASE_CATEGORIES.map(cat => (
                   <CategoryCard

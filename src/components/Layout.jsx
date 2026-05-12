@@ -11,7 +11,7 @@ import { GlobalBlobs } from './Backgrounds'
 import {
   BookOpen, MessageCircle, CreditCard, AlignLeft,
   MessageSquare, LayoutDashboard, LogOut,
-  Sun, Moon, Heart, RotateCcw, Timer, X, Menu, ArrowUp,
+  Sun, Moon, Heart, RotateCcw, Timer, X, ArrowUp,
 } from 'lucide-react'
 
 // ─── Navigation items ─────────────────────────────────────────────────────────
@@ -518,23 +518,26 @@ export default function Layout({ children }) {
       {/* ═══════════ Contenu principal ═══════════════════════════════════════ */}
       <div className="flex-1 flex flex-col min-w-0 h-screen overflow-hidden">
 
-        {/* Header mobile (compact) */}
-        <header className="lg:hidden sticky top-0 z-10 bg-white/90 backdrop-blur-md border-b border-gray-100 px-4 py-3 flex items-center justify-between shadow-sm">
-          <button
-            onClick={() => setSidebarOpen(true)}
-            className="p-2 rounded-xl hover:bg-gray-100 transition-colors"
-          >
-            <Menu className="w-5 h-5 text-gray-600" />
-          </button>
+        {/* Header mobile */}
+        <header className="lg:hidden sticky top-0 z-10 border-b border-white/10 px-4 flex items-center justify-between shadow-sm" style={{ background: '#1A2332', height: 56 }}>
+          {/* Spacer gauche pour centrer le logo */}
+          <div className="w-10 flex-shrink-0" />
+          {/* Logo centré */}
           <div className="flex items-center gap-2">
-            <KurdishLogoIcon size={28} />
-            <span className="font-display font-bold text-gray-900">Fêrbûn</span>
+            <KurdishLogoIcon size={26} />
+            <span className="font-display font-bold text-white text-base">Fêrbûn</span>
           </div>
-          <HeartsDisplay hearts={hearts} nextHeartAt={nextHeartAt} onEarnClick={() => setShowEarnModal(true)} />
+          {/* Droite : cœurs + avatar */}
+          <div className="flex items-center gap-2.5 flex-shrink-0">
+            <HeartsDisplay hearts={hearts} nextHeartAt={nextHeartAt} onEarnClick={() => setShowEarnModal(true)} dark />
+            <div className={`w-8 h-8 rounded-full bg-gradient-to-br ${avatarGradient} flex items-center justify-center shadow-md`}>
+              <span className="text-[10px] font-bold text-white">{initials}</span>
+            </div>
+          </div>
         </header>
 
         {/* Page */}
-        <main id="main-scroll" className="flex-1 overflow-auto pb-20 lg:pb-0 relative">
+        <main id="main-scroll" className="flex-1 overflow-auto lg:pb-0 relative pb-nav-safe">
           <motion.div
             key={location.pathname}
             initial={{ opacity: 0, y: 8 }}
@@ -553,7 +556,8 @@ export default function Layout({ children }) {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.8 }}
                 onClick={() => document.getElementById('main-scroll')?.scrollTo({ top: 0, behavior: 'smooth' })}
-                className="fixed bottom-24 lg:bottom-6 right-4 z-30 w-10 h-10 rounded-full bg-kurdish-green text-white shadow-lg flex items-center justify-center hover:bg-kurdish-green-dark active:scale-95 transition-colors"
+                className="fixed lg:bottom-6 right-4 z-30 w-10 h-10 rounded-full bg-kurdish-green text-white shadow-lg flex items-center justify-center hover:bg-kurdish-green-dark active:scale-95 transition-colors"
+                style={{ bottom: 'calc(65px + env(safe-area-inset-bottom, 0px) + 16px)' }}
                 style={{ boxShadow: '0 4px 16px rgba(27,125,78,0.35)' }}
                 aria-label="Retour en haut"
               >
@@ -565,23 +569,26 @@ export default function Layout({ children }) {
       </div>
 
       {/* ═══════════ Bottom nav mobile ═══════════════════════════════════════ */}
-      <nav className="lg:hidden fixed bottom-0 inset-x-0 z-20 bg-white/95 backdrop-blur-md border-t border-gray-100 safe-area-inset-bottom">
-        <div className="flex items-center justify-around h-16 px-2">
+      <nav
+        className="lg:hidden fixed bottom-0 inset-x-0 z-20 border-t border-white/10"
+        style={{ background: '#1A2332', paddingBottom: 'env(safe-area-inset-bottom, 0px)' }}
+      >
+        <div className="flex items-center justify-around h-[65px] px-2">
           {BOTTOM_NAV.map(item => {
             const isActive = location.pathname === item.path
             return (
               <Link
                 key={item.path}
                 to={item.path}
-                className="flex flex-col items-center gap-0.5 px-3 py-1.5 rounded-xl transition-all"
+                className="flex flex-col items-center gap-1 px-3 py-1 rounded-xl transition-all"
               >
-                <div className={`p-1.5 rounded-xl transition-all ${isActive ? 'bg-kurdish-green/10' : ''}`}>
+                <div className={`p-1.5 rounded-xl transition-all ${isActive ? 'bg-kurdish-green/15' : ''}`}>
                   <item.icon
-                    style={{ width: 20, height: 20 }}
-                    className={isActive ? 'text-kurdish-green' : 'text-gray-400'}
+                    style={{ width: 22, height: 22 }}
+                    className={isActive ? 'text-kurdish-green' : 'text-white/45'}
                   />
                 </div>
-                <span className={`text-[10px] font-medium leading-none ${isActive ? 'text-kurdish-green' : 'text-gray-400'}`}>
+                <span className={`text-[10px] font-medium leading-none ${isActive ? 'text-kurdish-green font-semibold' : 'text-white/45'}`}>
                   {item.label}
                 </span>
               </Link>

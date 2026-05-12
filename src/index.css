@@ -109,6 +109,11 @@
     content: '';
     @apply absolute top-0.5 right-0.5 w-2 h-2 bg-red-500 rounded-full;
   }
+
+  /* Padding bas tenant compte de la nav mobile + safe area iPhone */
+  .pb-nav-safe {
+    padding-bottom: calc(65px + env(safe-area-inset-bottom, 0px));
+  }
 }
 
 @keyframes badge-shine {

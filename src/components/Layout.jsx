@@ -8,6 +8,7 @@ import { useSounds } from '../hooks/useSounds'
 import { LEVELS, calcLevel } from '../lib/db'
 import { KurdishLogoIcon } from './KurdishLogo'
 import { GlobalBlobs } from './Backgrounds'
+import BottomNav from './BottomNav'
 import {
   BookOpen, MessageCircle, CreditCard, AlignLeft,
   MessageSquare, LayoutDashboard, LogOut,
@@ -375,30 +376,8 @@ export default function Layout({ children }) {
       {/* ── Blobs fixes globaux ── */}
       <GlobalBlobs />
 
-      {/* ── Overlay mobile ── */}
-      <AnimatePresence>
-        {sidebarOpen && (
-          <motion.div
-            initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-20 lg:hidden"
-            onClick={() => setSidebarOpen(false)}
-          />
-        )}
-      </AnimatePresence>
-
-      {/* ═══════════ SIDEBAR (desktop always, mobile as drawer) ════════════ */}
-      <motion.aside
-        initial={false}
-        animate={{ x: sidebarOpen ? 0 : undefined }}
-        className={`
-          fixed lg:relative inset-y-0 left-0 z-30
-          w-64 h-screen flex flex-col flex-shrink-0 overflow-hidden
-          bg-gradient-sidebar
-          border-r border-white/5
-          transition-transform duration-300 ease-in-out
-          ${sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
-        `}
-      >
+      {/* ═══════════ SIDEBAR (desktop only) ═════════════════════════════════ */}
+      <aside className="hidden md:flex flex-col flex-shrink-0 w-64 h-screen overflow-hidden bg-gradient-sidebar border-r border-white/5">
         <SidebarLogo />
 
         {/* Navigation */}
@@ -513,13 +492,13 @@ export default function Layout({ children }) {
             </button>
           </div>
         </div>
-      </motion.aside>
+      </aside>
 
       {/* ═══════════ Contenu principal ═══════════════════════════════════════ */}
       <div className="flex-1 flex flex-col min-w-0 h-screen overflow-hidden">
 
         {/* Header mobile */}
-        <header className="lg:hidden sticky top-0 z-10 border-b border-white/10 px-4 flex items-center justify-between shadow-sm" style={{ background: '#1A2332', height: 56 }}>
+        <header className="md:hidden sticky top-0 z-10 border-b border-white/10 px-4 flex items-center justify-between shadow-sm" style={{ background: '#1A2332', height: 56 }}>
           {/* Spacer gauche pour centrer le logo */}
           <div className="w-10 flex-shrink-0" />
           {/* Logo centré */}
@@ -537,7 +516,7 @@ export default function Layout({ children }) {
         </header>
 
         {/* Page */}
-        <main id="main-scroll" className="flex-1 overflow-auto lg:pb-0 relative pb-nav-safe">
+        <main id="main-scroll" className="flex-1 overflow-auto pb-20 md:pb-0 relative">
           <motion.div
             key={location.pathname}
             initial={{ opacity: 0, y: 8 }}
@@ -556,9 +535,8 @@ export default function Layout({ children }) {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.8 }}
                 onClick={() => document.getElementById('main-scroll')?.scrollTo({ top: 0, behavior: 'smooth' })}
-                className="fixed lg:bottom-6 right-4 z-30 w-10 h-10 rounded-full bg-kurdish-green text-white shadow-lg flex items-center justify-center hover:bg-kurdish-green-dark active:scale-95 transition-colors"
-                style={{ bottom: 'calc(65px + env(safe-area-inset-bottom, 0px) + 16px)' }}
-                style={{ boxShadow: '0 4px 16px rgba(27,125,78,0.35)' }}
+                className="fixed right-4 z-30 w-10 h-10 rounded-full bg-kurdish-green text-white shadow-lg flex items-center justify-center hover:bg-kurdish-green-dark active:scale-95 transition-colors md:bottom-6"
+                style={{ bottom: 'calc(65px + env(safe-area-inset-bottom, 0px) + 12px)', boxShadow: '0 4px 16px rgba(27,125,78,0.35)' }}
                 aria-label="Retour en haut"
               >
                 <ArrowUp size={18} />
@@ -569,33 +547,7 @@ export default function Layout({ children }) {
       </div>
 
       {/* ═══════════ Bottom nav mobile ═══════════════════════════════════════ */}
-      <nav
-        className="lg:hidden fixed bottom-0 inset-x-0 z-20 border-t border-white/10"
-        style={{ background: '#1A2332', paddingBottom: 'env(safe-area-inset-bottom, 0px)' }}
-      >
-        <div className="flex items-center justify-around h-[65px] px-2">
-          {BOTTOM_NAV.map(item => {
-            const isActive = location.pathname === item.path
-            return (
-              <Link
-                key={item.path}
-                to={item.path}
-                className="flex flex-col items-center gap-1 px-3 py-1 rounded-xl transition-all"
-              >
-                <div className={`p-1.5 rounded-xl transition-all ${isActive ? 'bg-kurdish-green/15' : ''}`}>
-                  <item.icon
-                    style={{ width: 22, height: 22 }}
-                    className={isActive ? 'text-kurdish-green' : 'text-white/45'}
-                  />
-                </div>
-                <span className={`text-[10px] font-medium leading-none ${isActive ? 'text-kurdish-green font-semibold' : 'text-white/45'}`}>
-                  {item.label}
-                </span>
-              </Link>
-            )
-          })}
-        </div>
-      </nav>
+      <BottomNav />
 
       {/* ═══════════ Modal cœur ══════════════════════════════════════════════ */}
       <AnimatePresence>

@@ -50,15 +50,6 @@ function useAnimatedCounter(target, duration = 900) {
   return value
 }
 
-// ─── Variantes d'animation stagger ───────────────────────────────────────────
-const containerVariants = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.07 } },
-}
-const itemVariants = {
-  hidden: { opacity: 0, y: 14 },
-  show:   { opacity: 1, y: 0, transition: { duration: 0.35, ease: 'easeOut' } },
-}
 
 // ─── Mot du Jour ──────────────────────────────────────────────────────────────
 function WordOfDay({ userId }) {
@@ -90,7 +81,7 @@ function WordOfDay({ userId }) {
   }
 
   return (
-    <motion.div variants={itemVariants}
+    <motion.div initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }} transition={{ duration: 0.55, ease: [0.23, 1, 0.32, 1] }}
       className="relative overflow-hidden rounded-3xl shadow-lg text-white kurdish-pattern"
       style={{ background: 'linear-gradient(135deg, #1B7D4E 0%, #0D5C35 60%, #0A4A2A 100%)' }}
     >
@@ -200,7 +191,7 @@ function DailyChallengeCard({ userId }) {
   const emoji = !done ? '⚡' : pct >= 80 ? '🏆' : pct >= 50 ? '🌟' : '📚'
 
   return (
-    <motion.div variants={itemVariants}
+    <motion.div initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }} transition={{ duration: 0.55, ease: [0.23, 1, 0.32, 1] }}
       className="relative overflow-hidden rounded-3xl shadow-lg text-white"
       style={{ background: 'linear-gradient(135deg, #D4940A 0%, #B87A08 60%, #9E6A06 100%)' }}
     >
@@ -279,7 +270,7 @@ function AnimatedStatCard({ icon: Icon, rawValue, label, iconBg }) {
 
   return (
     <motion.div
-      variants={itemVariants}
+      initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }} transition={{ duration: 0.55, ease: [0.23, 1, 0.32, 1] }}
       whileHover={{ y: -3, boxShadow: '0 12px 40px rgba(27,125,78,0.15)' }}
       className="rounded-3xl p-4 text-center transition-shadow"
       style={{ background: 'rgba(255,255,255,0.05)', backdropFilter: 'blur(24px)', WebkitBackdropFilter: 'blur(24px)', border: '1px solid rgba(255,255,255,0.09)' }}
@@ -303,7 +294,7 @@ function AnimatedStatCards({ profile, dueCount }) {
       iconBg: 'from-kurdish-green to-emerald-600' },
   ]
   return (
-    <motion.div variants={itemVariants} className="grid grid-cols-3 gap-3">
+    <motion.div initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }} transition={{ duration: 0.55, ease: [0.23, 1, 0.32, 1] }} className="grid grid-cols-3 gap-3">
       {cards.map((s, i) => <AnimatedStatCard key={i} {...s} />)}
     </motion.div>
   )
@@ -340,8 +331,9 @@ function BadgeGrid({ profile, lessonProgress }) {
           <motion.div
             key={badge.id}
             initial={{ opacity: 0, scale: 0.85 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: i * 0.05 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.05, duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
             className={`relative flex flex-col items-center gap-1.5 p-3 rounded-2xl border transition-all overflow-hidden ${
               earned
                 ? 'border-kurdish-gold/40 badge-glow'
@@ -385,7 +377,7 @@ function LevelBar({ xp }) {
   }
 
   return (
-    <motion.div variants={itemVariants} className="rounded-3xl p-5"
+    <motion.div initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }} transition={{ duration: 0.55, ease: [0.23, 1, 0.32, 1] }} className="rounded-3xl p-5"
       style={{ background: 'rgba(255,255,255,0.05)', backdropFilter: 'blur(24px)', WebkitBackdropFilter: 'blur(24px)', border: '1px solid rgba(255,255,255,0.09)' }}>
       <div className="flex items-center justify-between mb-3">
         <div>
@@ -434,7 +426,7 @@ function XPChart({ activity }) {
   const maxXp = Math.max(...data.map(d => d.xp), 10)
 
   return (
-    <motion.div variants={itemVariants} className="rounded-3xl p-5 overflow-hidden min-w-0"
+    <motion.div initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }} transition={{ duration: 0.55, ease: [0.23, 1, 0.32, 1] }} className="rounded-3xl p-5 overflow-hidden min-w-0"
       style={{ background: 'rgba(255,255,255,0.05)', backdropFilter: 'blur(24px)', WebkitBackdropFilter: 'blur(24px)', border: '1px solid rgba(255,255,255,0.09)' }}>
       <div className="flex items-center gap-2 mb-4">
         <div className="w-8 h-8 rounded-xl flex items-center justify-center" style={{ background: 'rgba(27,125,78,0.2)' }}>
@@ -487,7 +479,7 @@ function ActivityCalendar({ activity }) {
   }
 
   return (
-    <motion.div variants={itemVariants} className="rounded-3xl p-5"
+    <motion.div initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }} transition={{ duration: 0.55, ease: [0.23, 1, 0.32, 1] }} className="rounded-3xl p-5"
       style={{ background: 'rgba(255,255,255,0.05)', backdropFilter: 'blur(24px)', WebkitBackdropFilter: 'blur(24px)', border: '1px solid rgba(255,255,255,0.09)' }}>
       <div className="flex items-center gap-2 mb-4">
         <div className="w-8 h-8 rounded-xl flex items-center justify-center" style={{ background: 'rgba(27,125,78,0.2)' }}>
@@ -524,7 +516,7 @@ function RecentLessons({ lessonProgress }) {
   if (recent.length === 0) return null
 
   return (
-    <motion.div variants={itemVariants} className="rounded-3xl p-5"
+    <motion.div initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }} transition={{ duration: 0.55, ease: [0.23, 1, 0.32, 1] }} className="rounded-3xl p-5"
       style={{ background: 'rgba(255,255,255,0.05)', backdropFilter: 'blur(24px)', WebkitBackdropFilter: 'blur(24px)', border: '1px solid rgba(255,255,255,0.09)' }}>
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-2">
@@ -600,14 +592,9 @@ export default function Dashboard() {
       {/* Bannière pleine largeur */}
       <DashboardBanner />
 
-    <motion.div
-      className="max-w-2xl mx-auto px-4 py-6 flex flex-col gap-5"
-      variants={containerVariants}
-      initial="hidden"
-      animate="show"
-    >
+    <div className="max-w-2xl mx-auto px-4 py-6 flex flex-col gap-5">
       {/* ── Greeting ── */}
-      <motion.div variants={itemVariants}>
+      <motion.div initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }} transition={{ duration: 0.55, ease: [0.23, 1, 0.32, 1] }}>
         <div className="flex items-center gap-2">
           <motion.span
             className="text-3xl cursor-pointer select-none"
@@ -640,7 +627,7 @@ export default function Dashboard() {
       {!loading && <LevelBar xp={profile?.xp || 0} />}
 
       {/* ── Quick actions ── */}
-      <motion.div variants={itemVariants}>
+      <motion.div initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }} transition={{ duration: 0.55, ease: [0.23, 1, 0.32, 1] }}>
         <h2 className="font-semibold text-white/50 mb-3 text-sm uppercase tracking-wide">Continuer l'apprentissage</h2>
         <div className="grid grid-cols-2 gap-3">
           {QUICK_ACTIONS.map(action => (
@@ -674,7 +661,7 @@ export default function Dashboard() {
 
       {/* ── Badges ── */}
       {!loading && (
-        <motion.div variants={itemVariants} className="rounded-3xl p-5"
+        <motion.div initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }} transition={{ duration: 0.55, ease: [0.23, 1, 0.32, 1] }} className="rounded-3xl p-5"
           style={{ background: 'rgba(255,255,255,0.05)', backdropFilter: 'blur(24px)', WebkitBackdropFilter: 'blur(24px)', border: '1px solid rgba(255,255,255,0.09)' }}>
           <div className="flex items-center gap-2 mb-4">
             <div className="w-8 h-8 rounded-xl flex items-center justify-center" style={{ background: 'rgba(212,148,10,0.2)' }}>
@@ -688,7 +675,7 @@ export default function Dashboard() {
 
       {/* ── Message motivant du jour ── */}
       <motion.div
-        variants={itemVariants}
+        initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }} transition={{ duration: 0.55, ease: [0.23, 1, 0.32, 1] }}
         className="rounded-2xl px-5 py-4 flex items-center gap-4"
         style={{ background: 'rgba(27,125,78,0.10)', border: '1px solid rgba(27,125,78,0.25)' }}
       >
@@ -704,7 +691,7 @@ export default function Dashboard() {
       {/* ── Banner bienvenue ── */}
       {(!profile?.xp || profile.xp === 0) && (
         <motion.div
-          variants={itemVariants}
+          initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }} transition={{ duration: 0.55, ease: [0.23, 1, 0.32, 1] }}
           className="rounded-3xl p-6 text-white shadow-lg overflow-hidden relative kurdish-pattern"
           style={{ background: 'linear-gradient(135deg, #1B7D4E 0%, #0A4A2A 100%)' }}
         >
@@ -724,7 +711,7 @@ export default function Dashboard() {
           </Link>
         </motion.div>
       )}
-    </motion.div>
+    </div>
     </div>
   )
 }

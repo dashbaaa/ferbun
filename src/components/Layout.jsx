@@ -376,6 +376,8 @@ export default function Layout({ children }) {
     advanced: 'Pêşketî',   expert: 'Şareza',
   }
 
+  const pageName = NAV_ITEMS.find(n => location.pathname.startsWith(n.path))?.label || ''
+
   return (
     <div className="h-screen app-bg flex overflow-hidden">
 
@@ -504,19 +506,44 @@ export default function Layout({ children }) {
       <div className="flex-1 flex flex-col min-w-0 h-screen">
 
         {/* Header mobile */}
-        <header className="md:hidden sticky top-0 z-10 border-b border-white/10 px-4 flex items-center justify-between shadow-sm" style={{ background: '#1A2332', height: 56 }}>
-          {/* Spacer gauche pour centrer le logo */}
-          <div className="w-10 flex-shrink-0" />
-          {/* Logo centré */}
-          <div className="flex items-center gap-2">
-            <KurdishLogoIcon size={26} />
-            <span className="font-display font-bold text-white text-base">Fêrbûn</span>
-          </div>
-          {/* Droite : cœurs + avatar */}
-          <div className="flex items-center gap-2.5 flex-shrink-0">
-            <HeartsDisplay hearts={hearts} nextHeartAt={nextHeartAt} onEarnClick={() => setShowEarnModal(true)} dark />
-            <div className={`w-8 h-8 rounded-full bg-gradient-to-br ${avatarGradient} flex items-center justify-center shadow-md`}>
-              <span className="text-[10px] font-bold text-white">{initials}</span>
+        <header className="md:hidden sticky top-0 z-10 relative flex-shrink-0" style={{ height: 60 }}>
+          {/* Fond glassmorphism */}
+          <div className="absolute inset-0" style={{
+            background: 'rgba(6,13,26,0.88)',
+            backdropFilter: 'blur(20px)',
+            WebkitBackdropFilter: 'blur(20px)',
+          }} />
+          {/* Particule verte décorative */}
+          <div className="absolute top-0 left-1/3 pointer-events-none" style={{
+            width: 180, height: 40,
+            background: 'radial-gradient(ellipse, rgba(27,125,78,0.18) 0%, transparent 70%)',
+          }} />
+          {/* Ligne dégradée en bas */}
+          <div className="absolute bottom-0 left-0 right-0 h-px" style={{
+            background: 'linear-gradient(90deg, transparent 0%, rgba(27,125,78,0.75) 30%, rgba(212,148,10,0.55) 65%, transparent 100%)',
+          }} />
+          <div className="relative flex items-center justify-between px-4 h-full">
+            {/* Logo + nom — gauche */}
+            <div className="flex items-center gap-2.5">
+              <div style={{ filter: 'drop-shadow(0 0 9px rgba(27,125,78,0.80))' }}>
+                <KurdishLogoIcon size={28} />
+              </div>
+              <div className="flex flex-col leading-none">
+                <span className="font-display font-bold text-white" style={{ fontSize: 15 }}>Fêrbûn</span>
+                {pageName && (
+                  <span className="text-white/38 mt-0.5" style={{ fontSize: 10 }}>{pageName}</span>
+                )}
+              </div>
+            </div>
+            {/* Droite : cœurs + avatar */}
+            <div className="flex items-center gap-2.5">
+              <HeartsDisplay hearts={hearts} nextHeartAt={nextHeartAt} onEarnClick={() => setShowEarnModal(true)} dark />
+              <div
+                className={`w-8 h-8 rounded-full bg-gradient-to-br ${avatarGradient} flex items-center justify-center`}
+                style={{ boxShadow: '0 0 10px rgba(27,125,78,0.45), 0 2px 8px rgba(0,0,0,0.5)' }}
+              >
+                <span className="text-[10px] font-bold text-white">{initials}</span>
+              </div>
             </div>
           </div>
         </header>

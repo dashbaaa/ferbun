@@ -516,7 +516,7 @@ export default function Layout({ children }) {
         </header>
 
         {/* Page */}
-        <main id="main-scroll" className="flex-1 overflow-auto pb-20 md:pb-0 relative">
+        <main id="main-scroll" className="flex-1 overflow-y-auto overflow-x-hidden pb-20 md:pb-0 relative">
           <motion.div
             key={location.pathname}
             initial={{ opacity: 0, y: 8 }}

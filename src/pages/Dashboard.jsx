@@ -120,8 +120,8 @@ function WordOfDay({ userId }) {
           </span>
         </div>
 
-        <div className="mb-1">
-          <span className="text-5xl font-display font-bold leading-none tracking-tight"
+        <div className="mb-1 overflow-hidden">
+          <span className="block text-5xl font-display font-bold leading-none tracking-tight break-all"
             style={{ textShadow: '0 2px 12px rgba(0,0,0,0.2)' }}>
             {word.kd}
           </span>
@@ -428,7 +428,7 @@ function XPChart({ activity }) {
   const maxXp = Math.max(...data.map(d => d.xp), 10)
 
   return (
-    <motion.div variants={itemVariants} className="bg-white rounded-3xl border border-gray-100 shadow-card p-5">
+    <motion.div variants={itemVariants} className="bg-white rounded-3xl border border-gray-100 shadow-card p-5 overflow-hidden min-w-0">
       <div className="flex items-center gap-2 mb-4">
         <div className="w-8 h-8 rounded-xl bg-kurdish-green/10 flex items-center justify-center">
           <TrendingUp size={16} className="text-kurdish-green" />

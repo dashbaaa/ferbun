@@ -23,14 +23,14 @@ export default function BottomNav() {
         paddingBottom: 'env(safe-area-inset-bottom, 0px)',
       }}
     >
-      <div className="flex items-center justify-around h-[65px] px-1">
+      <div className="flex w-full h-[65px]">
         {NAV_ITEMS.map(item => {
           const isActive = location.pathname === item.path
           return (
             <Link
               key={item.path}
               to={item.path}
-              className="relative flex flex-col items-center gap-1 flex-1 py-1"
+              className="relative flex flex-col items-center justify-center gap-1 flex-1 min-w-0 overflow-hidden py-1"
             >
               {/* Indicateur actif : ligne verte en haut de l'onglet */}
               {isActive && (

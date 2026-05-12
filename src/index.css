@@ -13,12 +13,14 @@
 
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
 
   body {
     @apply text-[#1A1A2E] font-body antialiased;
     font-feature-settings: 'kern' 1, 'liga' 1;
     background-color: #FFFFFF;
+    overflow-x: hidden;
   }
 
   /* Fond global layout */

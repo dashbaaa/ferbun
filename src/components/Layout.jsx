@@ -334,6 +334,12 @@ export default function Layout({ children }) {
 
   const [showScrollTop, setShowScrollTop] = useState(false)
 
+  // Toujours dark — on force la classe au montage
+  useEffect(() => {
+    document.documentElement.classList.add('dark')
+    setDarkMode(true)
+  }, [])
+
   const toggleDark = () => {
     setDarkMode(d => !d)
     document.documentElement.classList.toggle('dark')
@@ -377,7 +383,7 @@ export default function Layout({ children }) {
       <GlobalBlobs />
 
       {/* ═══════════ SIDEBAR (desktop only) ═════════════════════════════════ */}
-      <aside className="hidden md:flex flex-col flex-shrink-0 w-64 h-screen overflow-hidden bg-gradient-sidebar border-r border-white/5">
+      <aside className="hidden md:flex flex-col flex-shrink-0 w-64 h-screen overflow-hidden border-r border-white/[0.06]" style={{ background: 'linear-gradient(160deg, #08111F 0%, #0B1A2C 100%)' }}>
         <SidebarLogo />
 
         {/* Navigation */}

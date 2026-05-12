@@ -280,14 +280,15 @@ function AnimatedStatCard({ icon: Icon, rawValue, label, iconBg }) {
   return (
     <motion.div
       variants={itemVariants}
-      whileHover={{ y: -2, boxShadow: '0 8px 24px rgba(0,0,0,0.09)' }}
-      className="bg-white border border-gray-100 rounded-3xl p-4 text-center shadow-card transition-shadow"
+      whileHover={{ y: -3, boxShadow: '0 12px 40px rgba(27,125,78,0.15)' }}
+      className="rounded-3xl p-4 text-center transition-shadow"
+      style={{ background: 'rgba(255,255,255,0.05)', backdropFilter: 'blur(24px)', WebkitBackdropFilter: 'blur(24px)', border: '1px solid rgba(255,255,255,0.09)' }}
     >
-      <div className={`w-11 h-11 rounded-2xl bg-gradient-to-br ${iconBg} mx-auto mb-2.5 flex items-center justify-center shadow-sm`}>
+      <div className={`w-11 h-11 rounded-2xl bg-gradient-to-br ${iconBg} mx-auto mb-2.5 flex items-center justify-center shadow-lg`}>
         <Icon size={20} className="text-white" />
       </div>
-      <p className="text-2xl font-bold text-slate-800">{display}</p>
-      <p className="text-xs text-slate-500 mt-0.5">{label}</p>
+      <p className="text-2xl font-bold text-white">{display}</p>
+      <p className="text-xs text-white/50 mt-0.5">{label}</p>
     </motion.div>
   )
 }
@@ -343,9 +344,13 @@ function BadgeGrid({ profile, lessonProgress }) {
             transition={{ delay: i * 0.05 }}
             className={`relative flex flex-col items-center gap-1.5 p-3 rounded-2xl border transition-all overflow-hidden ${
               earned
-                ? 'bg-kurdish-yellow-light border-kurdish-gold/30 badge-glow'
-                : 'bg-slate-50 border-slate-200 opacity-40 grayscale'
+                ? 'border-kurdish-gold/40 badge-glow'
+                : 'opacity-35 grayscale'
             }`}
+            style={earned
+              ? { background: 'rgba(212,148,10,0.12)' }
+              : { background: 'rgba(255,255,255,0.04)', borderColor: 'rgba(255,255,255,0.07)' }
+            }
           >
             {/* Effet shine animé sur les badges débloqués */}
             {earned && (
@@ -360,7 +365,7 @@ function BadgeGrid({ profile, lessonProgress }) {
               />
             )}
             <span className="text-2xl relative z-10">{badge.icon}</span>
-            <span className="text-xs text-center text-slate-600 leading-tight font-medium relative z-10">{badge.label}</span>
+            <span className="text-xs text-center text-white/70 leading-tight font-medium relative z-10">{badge.label}</span>
             {!earned && <Lock size={10} className="text-slate-400" />}
           </motion.div>
         )
@@ -380,32 +385,33 @@ function LevelBar({ xp }) {
   }
 
   return (
-    <motion.div variants={itemVariants} className="bg-white rounded-3xl border border-gray-100 shadow-card p-5">
+    <motion.div variants={itemVariants} className="rounded-3xl p-5"
+      style={{ background: 'rgba(255,255,255,0.05)', backdropFilter: 'blur(24px)', WebkitBackdropFilter: 'blur(24px)', border: '1px solid rgba(255,255,255,0.09)' }}>
       <div className="flex items-center justify-between mb-3">
         <div>
-          <p className="text-xs text-slate-400 font-medium uppercase tracking-wide">Niveau actuel</p>
-          <p className="text-xl font-bold text-slate-800 mt-0.5">
+          <p className="text-xs text-white/40 font-medium uppercase tracking-wide">Niveau actuel</p>
+          <p className="text-xl font-bold text-white mt-0.5">
             {labelMap[level] || level}
-            <span className="text-slate-400 font-normal text-base ml-2">· {meta.fr}</span>
+            <span className="text-white/40 font-normal text-base ml-2">· {meta.fr}</span>
           </p>
         </div>
         <div className="text-right">
           <p className="text-3xl font-bold text-kurdish-green">{xp || 0}</p>
-          <p className="text-xs text-slate-400">XP</p>
+          <p className="text-xs text-white/40">XP</p>
         </div>
       </div>
-      <div className="h-3 bg-slate-100 rounded-full overflow-hidden">
+      <div className="h-2.5 rounded-full overflow-hidden" style={{ background: 'rgba(255,255,255,0.08)' }}>
         <motion.div
           initial={{ width: 0 }}
           animate={{ width: `${pct}%` }}
           transition={{ duration: 1, ease: 'easeOut' }}
           className="h-full rounded-full"
-          style={{ background: 'linear-gradient(90deg, #1B7D4E 0%, #2DC572 100%)' }}
+          style={{ background: 'linear-gradient(90deg, #1B7D4E 0%, #2DC572 100%)', boxShadow: '0 0 12px rgba(27,125,78,0.6)' }}
         />
       </div>
-      <div className="flex justify-between mt-1.5 text-xs text-slate-400">
+      <div className="flex justify-between mt-1.5 text-xs text-white/35">
         <span>{meta.min} XP</span>
-        <span className="font-medium text-kurdish-green">{pct}%</span>
+        <span className="font-medium text-emerald-400">{pct}%</span>
         <span>{meta.next} XP</span>
       </div>
     </motion.div>
@@ -428,28 +434,29 @@ function XPChart({ activity }) {
   const maxXp = Math.max(...data.map(d => d.xp), 10)
 
   return (
-    <motion.div variants={itemVariants} className="bg-white rounded-3xl border border-gray-100 shadow-card p-5 overflow-hidden min-w-0">
+    <motion.div variants={itemVariants} className="rounded-3xl p-5 overflow-hidden min-w-0"
+      style={{ background: 'rgba(255,255,255,0.05)', backdropFilter: 'blur(24px)', WebkitBackdropFilter: 'blur(24px)', border: '1px solid rgba(255,255,255,0.09)' }}>
       <div className="flex items-center gap-2 mb-4">
-        <div className="w-8 h-8 rounded-xl bg-kurdish-green/10 flex items-center justify-center">
-          <TrendingUp size={16} className="text-kurdish-green" />
+        <div className="w-8 h-8 rounded-xl flex items-center justify-center" style={{ background: 'rgba(27,125,78,0.2)' }}>
+          <TrendingUp size={16} className="text-emerald-400" />
         </div>
-        <h3 className="font-semibold text-slate-700">XP cette semaine</h3>
+        <h3 className="font-semibold text-white/80">XP cette semaine</h3>
       </div>
       <ResponsiveContainer width="100%" height={120}>
         <BarChart data={data} barCategoryGap="30%">
-          <XAxis dataKey="day" tick={{ fontSize: 11, fill: '#94a3b8' }} axisLine={false} tickLine={false} />
+          <XAxis dataKey="day" tick={{ fontSize: 11, fill: 'rgba(255,255,255,0.35)' }} axisLine={false} tickLine={false} />
           <YAxis hide domain={[0, maxXp * 1.3]} />
           <Tooltip
-            cursor={{ fill: 'rgba(0,0,0,0.03)', radius: 6 }}
-            contentStyle={{ borderRadius: 12, border: '1px solid #e2e8f0', fontSize: 12, boxShadow: '0 4px 12px rgba(0,0,0,0.08)' }}
+            cursor={{ fill: 'rgba(255,255,255,0.04)', radius: 6 }}
+            contentStyle={{ borderRadius: 12, border: '1px solid rgba(255,255,255,0.1)', fontSize: 12, background: 'rgba(10,20,35,0.92)', color: 'white', backdropFilter: 'blur(12px)' }}
             formatter={(v) => [`${v} XP`, '']}
           />
           <Bar dataKey="xp" radius={[6, 6, 0, 0]} maxBarSize={32}>
             {data.map((entry, i) => (
               <Cell key={i} fill={
                 entry.isToday ? '#1B7D4E'
-                : entry.xp > 0 ? '#86efac'
-                : '#f1f5f9'
+                : entry.xp > 0 ? 'rgba(52,211,153,0.6)'
+                : 'rgba(255,255,255,0.07)'
               } />
             ))}
           </Bar>
@@ -472,20 +479,21 @@ function ActivityCalendar({ activity }) {
   }, [activity])
 
   function cellClass(xp, isToday) {
-    if (isToday && xp === 0) return 'bg-slate-200 ring-2 ring-slate-400'
-    if (xp === 0)  return 'bg-slate-100'
+    if (isToday && xp === 0) return 'ring-2 ring-white/30' + ' ' + 'bg-white/10'
+    if (xp === 0)  return 'bg-white/[0.07]'
     if (xp < 20)  return 'bg-kurdish-green/25'
     if (xp < 60)  return 'bg-kurdish-green/55'
     return 'bg-kurdish-green'
   }
 
   return (
-    <motion.div variants={itemVariants} className="bg-white rounded-3xl border border-gray-100 shadow-card p-5">
+    <motion.div variants={itemVariants} className="rounded-3xl p-5"
+      style={{ background: 'rgba(255,255,255,0.05)', backdropFilter: 'blur(24px)', WebkitBackdropFilter: 'blur(24px)', border: '1px solid rgba(255,255,255,0.09)' }}>
       <div className="flex items-center gap-2 mb-4">
-        <div className="w-8 h-8 rounded-xl bg-kurdish-green/10 flex items-center justify-center">
-          <Calendar size={16} className="text-kurdish-green" />
+        <div className="w-8 h-8 rounded-xl flex items-center justify-center" style={{ background: 'rgba(27,125,78,0.2)' }}>
+          <Calendar size={16} className="text-emerald-400" />
         </div>
-        <h3 className="font-semibold text-slate-700">Activité (30 jours)</h3>
+        <h3 className="font-semibold text-white/80">Activité (30 jours)</h3>
       </div>
       <div className="grid grid-cols-10 gap-1.5">
         {cells.map(cell => (
@@ -497,11 +505,11 @@ function ActivityCalendar({ activity }) {
         ))}
       </div>
       <div className="flex items-center gap-2 mt-3 justify-end">
-        <span className="text-xs text-slate-400">Moins</span>
-        {['bg-slate-100', 'bg-kurdish-green/25', 'bg-kurdish-green/55', 'bg-kurdish-green'].map((c, i) => (
+        <span className="text-xs text-white/35">Moins</span>
+        {['bg-white/8', 'bg-kurdish-green/25', 'bg-kurdish-green/55', 'bg-kurdish-green'].map((c, i) => (
           <div key={i} className={`w-3 h-3 rounded-sm ${c}`} />
         ))}
-        <span className="text-xs text-slate-400">Plus</span>
+        <span className="text-xs text-white/35">Plus</span>
       </div>
     </motion.div>
   )
@@ -516,15 +524,16 @@ function RecentLessons({ lessonProgress }) {
   if (recent.length === 0) return null
 
   return (
-    <motion.div variants={itemVariants} className="bg-white rounded-3xl border border-gray-100 shadow-card p-5">
+    <motion.div variants={itemVariants} className="rounded-3xl p-5"
+      style={{ background: 'rgba(255,255,255,0.05)', backdropFilter: 'blur(24px)', WebkitBackdropFilter: 'blur(24px)', border: '1px solid rgba(255,255,255,0.09)' }}>
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-xl bg-kurdish-green/10 flex items-center justify-center">
-            <BookOpen size={16} className="text-kurdish-green" />
+          <div className="w-8 h-8 rounded-xl flex items-center justify-center" style={{ background: 'rgba(27,125,78,0.2)' }}>
+            <BookOpen size={16} className="text-emerald-400" />
           </div>
-          <h3 className="font-semibold text-slate-700">Leçons récentes</h3>
+          <h3 className="font-semibold text-white/80">Leçons récentes</h3>
         </div>
-        <Link to="/lessons" className="text-xs text-kurdish-green hover:underline font-medium">
+        <Link to="/lessons" className="text-xs text-emerald-400 hover:text-emerald-300 font-medium">
           Voir tout →
         </Link>
       </div>
@@ -533,18 +542,18 @@ function RecentLessons({ lessonProgress }) {
           const progress = lessonProgress[lesson.id]
           const pct = progress?.score || 0
           return (
-            <div key={lesson.id} className={`flex items-center gap-3 p-3 rounded-2xl ${lesson.bg} border ${lesson.border} hover:shadow-sm transition-shadow`}>
+            <div key={lesson.id} className="flex items-center gap-3 p-3 rounded-2xl transition-colors" style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.07)' }}>
               <span className="text-2xl">{lesson.icon}</span>
               <div className="flex-1 min-w-0">
-                <p className="font-semibold text-slate-800 text-sm truncate">{lesson.title_fr}</p>
+                <p className="font-semibold text-white text-sm truncate">{lesson.title_fr}</p>
                 <div className="flex items-center gap-2 mt-1">
-                  <div className="flex-1 h-1.5 bg-white/60 rounded-full overflow-hidden">
+                  <div className="flex-1 h-1.5 rounded-full overflow-hidden" style={{ background: 'rgba(255,255,255,0.12)' }}>
                     <div className="h-full bg-kurdish-green rounded-full transition-all" style={{ width: `${pct}%` }} />
                   </div>
-                  <span className="text-xs text-slate-500 shrink-0">{pct}%</span>
+                  <span className="text-xs text-white/45 shrink-0">{pct}%</span>
                 </div>
               </div>
-              {progress?.completed && <CheckCircle2 size={16} className="text-kurdish-green shrink-0" />}
+              {progress?.completed && <CheckCircle2 size={16} className="text-emerald-400 shrink-0" />}
             </div>
           )
         })}
@@ -608,10 +617,10 @@ export default function Dashboard() {
           >👋</motion.span>
           <div>
             <h1 className="text-3xl font-bold"
-              style={{ background: 'linear-gradient(135deg, #1A1A2E 0%, #1B7D4E 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+              style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.95) 0%, #4ade80 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
               {greeting}, {profile?.display_name || 'Heval'} !
             </h1>
-            <p className="text-slate-500 text-sm mt-0.5">
+            <p className="text-white/45 text-sm mt-0.5">
               {greetingFr} — continuons l'apprentissage du kurmandji
             </p>
           </div>
@@ -632,7 +641,7 @@ export default function Dashboard() {
 
       {/* ── Quick actions ── */}
       <motion.div variants={itemVariants}>
-        <h2 className="font-semibold text-slate-700 mb-3 text-sm uppercase tracking-wide">Continuer l'apprentissage</h2>
+        <h2 className="font-semibold text-white/50 mb-3 text-sm uppercase tracking-wide">Continuer l'apprentissage</h2>
         <div className="grid grid-cols-2 gap-3">
           {QUICK_ACTIONS.map(action => (
             <Link
@@ -665,12 +674,13 @@ export default function Dashboard() {
 
       {/* ── Badges ── */}
       {!loading && (
-        <motion.div variants={itemVariants} className="bg-white rounded-3xl border border-gray-100 shadow-card p-5">
+        <motion.div variants={itemVariants} className="rounded-3xl p-5"
+          style={{ background: 'rgba(255,255,255,0.05)', backdropFilter: 'blur(24px)', WebkitBackdropFilter: 'blur(24px)', border: '1px solid rgba(255,255,255,0.09)' }}>
           <div className="flex items-center gap-2 mb-4">
-            <div className="w-8 h-8 rounded-xl bg-amber-100 flex items-center justify-center">
-              <Trophy size={16} className="text-amber-500" />
+            <div className="w-8 h-8 rounded-xl flex items-center justify-center" style={{ background: 'rgba(212,148,10,0.2)' }}>
+              <Trophy size={16} className="text-amber-400" />
             </div>
-            <h3 className="font-semibold text-slate-700">Badges</h3>
+            <h3 className="font-semibold text-white/80">Badges</h3>
           </div>
           <BadgeGrid profile={profile} lessonProgress={lessonProgress} />
         </motion.div>
@@ -679,14 +689,15 @@ export default function Dashboard() {
       {/* ── Message motivant du jour ── */}
       <motion.div
         variants={itemVariants}
-        className="rounded-2xl border border-kurdish-green/15 bg-kurdish-green/5 px-5 py-4 flex items-center gap-4"
+        className="rounded-2xl px-5 py-4 flex items-center gap-4"
+        style={{ background: 'rgba(27,125,78,0.10)', border: '1px solid rgba(27,125,78,0.25)' }}
       >
         <span className="text-2xl select-none">🌄</span>
         <div>
-          <p className="font-display font-semibold text-kurdish-green-dark text-sm italic">
+          <p className="font-display font-semibold text-emerald-400 text-sm italic">
             &ldquo;{motivation.kd}&rdquo;
           </p>
-          <p className="text-xs text-slate-400 mt-0.5">{motivation.fr}</p>
+          <p className="text-xs text-white/40 mt-0.5">{motivation.fr}</p>
         </div>
       </motion.div>
 
